@@ -1,8 +1,9 @@
 import GenericTemplate from '../components/templates/GenericTemplate/GenericTemplate';
 import {CssBaseline, MuiThemeProvider} from "@material-ui/core";
-import theme from '../components/theme';
+import theme from '../components/theme/theme';
 import {useEffect} from "react";
 import {AppProps} from "next/app";
+import GlobalStyle from "../components/style/GlobalStyle";
 
 function App({Component, pageProps} : AppProps) {
     useEffect(() => {
@@ -16,82 +17,11 @@ function App({Component, pageProps} : AppProps) {
         <>
             <MuiThemeProvider theme={theme}>
                 <CssBaseline />
+                <GlobalStyle/>
                 <GenericTemplate>
                     <Component {...pageProps} />
                 </GenericTemplate>
             </MuiThemeProvider>
-
-            <style jsx global>{`
-              html {
-                font-size: 18px;
-              }
-
-              body {
-                font-size: 18px;
-                letter-spacing: 0.05em;
-                background-color: ${theme.colors.textGrey};
-                color: ${theme.colors.textGrey};
-              }
-
-              * {
-                margin: 0;
-              }
-
-              button {
-                outline: none;
-                position: relative;
-                padding: 0;
-                color: inherit;
-                border: none;
-                background: none;
-                line-height: inherit;
-                font-family: inherit;
-                font-weight: inherit;
-                font-size: inherit
-              }
-
-              button:hover, button:focus, button:active, button:visited {
-                outline: none;
-                background: inherit;
-              }
-
-              a {
-                color: inherit;
-                text-decoration: none;
-                cursor: pointer;
-              }
-
-              a:link, a:visited, a:hover {
-                color: inherit;
-                text-decoration: none;
-                cursor: pointer;
-              }
-
-              h1 {
-                font-size: ${theme.typography.h1};
-                letter-spacing: 0.03em;
-              }
-
-              h2 {
-                font-size: ${theme.typography.h2};
-                letter-spacing: 0.03em;
-              }
-
-              h3 {
-                font-size: ${theme.typography.h3};
-                letter-spacing: 0.03em;
-              }
-
-              p {
-                font-size: ${theme.typography.body1};
-                letter-spacing: 0.05em;
-              }
-              
-              .img-fluid {
-                width: 100%;
-                height: auto;
-              }
-            `}</style>
         </>
     )
 }
