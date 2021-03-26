@@ -1,9 +1,10 @@
-import Layout from 'components/Layout/Layout';
+import GenericTemplate from '../components/templates/GenericTemplate/GenericTemplate';
 import {CssBaseline, MuiThemeProvider} from "@material-ui/core";
-import theme from './theme';
+import theme from '../components/theme';
 import {useEffect} from "react";
+import {AppProps} from "next/app";
 
-function App({Component, pageProps}) {
+function App({Component, pageProps} : AppProps) {
     useEffect(() => {
         const jssStyles = document.querySelector('#jss-server-side');
         if (jssStyles) {
@@ -15,9 +16,9 @@ function App({Component, pageProps}) {
         <>
             <MuiThemeProvider theme={theme}>
                 <CssBaseline />
-                <Layout>
+                <GenericTemplate>
                     <Component {...pageProps} />
-                </Layout>
+                </GenericTemplate>
             </MuiThemeProvider>
 
             <style jsx global>{`
@@ -28,7 +29,7 @@ function App({Component, pageProps}) {
               body {
                 font-size: 18px;
                 letter-spacing: 0.05em;
-                background-color: ${theme.colors.background.main};
+                background-color: ${theme.colors.textGrey};
                 color: ${theme.colors.textGrey};
               }
 
