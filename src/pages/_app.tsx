@@ -1,8 +1,9 @@
 import GenericTemplate from '../components/templates/GenericTemplate/GenericTemplate';
 import {CssBaseline, MuiThemeProvider} from "@material-ui/core";
 import theme from '../components/theme/theme';
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import {AppProps} from "next/app";
+import Head from "next/head";
 
 function App({Component, pageProps} : AppProps) {
     useEffect(() => {
@@ -14,6 +15,9 @@ function App({Component, pageProps} : AppProps) {
 
     return (
         <>
+            <Head>
+                <title>Coinbase</title>
+            </Head>
             <MuiThemeProvider theme={theme}>
                 <CssBaseline />
                 <GenericTemplate>
