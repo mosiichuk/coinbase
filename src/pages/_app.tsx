@@ -3,7 +3,6 @@ import {CssBaseline, MuiThemeProvider} from "@material-ui/core";
 import theme from '../components/theme/theme';
 import {useEffect} from "react";
 import {AppProps} from "next/app";
-import GlobalStyle from "../components/style/GlobalStyle";
 
 function App({Component, pageProps} : AppProps) {
     useEffect(() => {
@@ -17,7 +16,6 @@ function App({Component, pageProps} : AppProps) {
         <>
             <MuiThemeProvider theme={theme}>
                 <CssBaseline />
-                <GlobalStyle/>
                 <GenericTemplate>
                     <Component {...pageProps} />
                 </GenericTemplate>

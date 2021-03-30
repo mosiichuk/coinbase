@@ -20,6 +20,13 @@ const theme = createMuiTheme({
         }
     },
     overrides: {
+        MuiCssBaseline: {
+            '@global': {
+                html: {
+                    WebkitFontSmoothing: 'auto',
+                },
+            },
+        },
         MuiSelect: {
             select: {
                 "&:focus": {
