@@ -1,23 +1,49 @@
 import {createMuiTheme} from "@material-ui/core";
+import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
+
+const breakpoints = createBreakpoints({})
 
 const theme = createMuiTheme({
     typography: {
-        h1: 64,
-        h2: 40,
-        h3: 30,
-        body1: 18
+        fontFamily: [
+            '"Poppins"',
+            'sans-serif',
+        ].join(','),
+        h1: {
+            fontSize: 40,
+            fontWeight: 400,
+            [breakpoints.up('lg')]: {
+                fontSize: 40,
+                lineHeight: 55,
+            },
+        },
+        h2: {
+            fontSize: 28,
+            fontWeight: 700,
+            [breakpoints.up('lg')]: {
+                fontSize: 28,
+                lineHeight: 42,
+            },
+        },
+        body1: {
+            fontSize: 16,
+            fontWeight: 400,
+            [breakpoints.up('lg')]: {
+                fontSize: 16,
+                lineHeight: 40,
+            },
+        },
     },
     navbarHeight: 80,
-    colors: {
-        textGrey: '#999999',
-        textWhite: '#FDFDFD',
-        accent: '#B661FC',
-        light: '#991EFF',
-        background: {
-            main: '#030200',
-            medium: '#0A0A0A',
-            light: '#131313',
-        }
+    palette: {
+        black: '#333333',
+        white: '#FFFFFF',
+        grey: {
+            main: '#888888',
+            medium: '#A2A2A2',
+            light: '#4A4A4A',
+        },
+        mainGradient: 'linear-gradient(178.18deg, #FD749B -13.56%, #281AC8 158.3%)',
     },
     overrides: {
         MuiCssBaseline: {
