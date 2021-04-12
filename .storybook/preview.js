@@ -1,18 +1,27 @@
 import * as nextImage from 'next/image';
-import { muiTheme } from 'storybook-addon-material-ui'
 import theme from "../src/components/theme/theme";
+import {CssBaseline, MuiThemeProvider} from "@material-ui/core";
+import React from "react";
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+    actions: {argTypesRegex: "^on[A-Z].*"},
 }
 
 export const decorators = [
-  muiTheme([theme])
+    (Story, context) => {
+
+        return (
+            <MuiThemeProvider theme={theme}>
+                <CssBaseline/>
+                <Story {...context} />
+            </MuiThemeProvider>
+        )
+    },
 ];
 
 Object.defineProperty(nextImage, 'default', {
-  configurable: true,
-  value: (props) => {
-    return <img {...props} />;
-  },
+    configurable: true,
+    value: (props) => {
+        return <img {...props} />;
+    },
 });
