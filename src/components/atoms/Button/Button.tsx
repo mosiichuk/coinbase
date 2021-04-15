@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import {makeStyles} from "@material-ui/core";
+import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -21,15 +22,38 @@ const useStyles = makeStyles((theme) => ({
 
         '&:active, &:focus': {
             outline: 'none',
-        }
+        },
     },
+
+    buttonAccent: {
+        position: 'relative',
+        background: theme.palette.primary.gradient,
+        '-webkit-background-clip': 'text',
+        '-webkit-text-fill-color': 'transparent',
+
+        '&::after': {
+            content: '""',
+            position: 'absolute',
+            borderRadius: 100,
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: theme.palette.common.white,
+            zIndex: -1,
+        },
+    }
 }));
 
-const Button: FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = (props: React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    accent?: boolean,
+}
+
+const Button: FC<ButtonProps> = (props: ButtonProps) => {
     const style = useStyles();
 
     return (
-        <button className={style.button} {...props}>
+        <button className={clsx(style.button, props.accent && style.buttonAccent)} {...props}>
             {props.children}
         </button>
     );
