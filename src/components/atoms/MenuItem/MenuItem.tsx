@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: '21px',
         color: theme.palette.common.black,
         textTransform: 'capitalize',
+        textDecoration: 'none',
 
         '&:hover': {
             background: theme.palette.primary.gradient,

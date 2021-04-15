@@ -35,5 +35,5 @@ const menuList = [
 ]
 
 export const Default = () => <Menu menuList={menuList}/>;
-Default.storyName = "Default Menu";
+Default.storyName = "Menu";
 
