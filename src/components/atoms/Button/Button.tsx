@@ -50,10 +50,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button: FC<ButtonProps> = (props: ButtonProps) => {
-    const style = useStyles();
+    const classes = useStyles();
 
     return (
-        <button className={clsx(style.button, props.accent && style.buttonAccent)} {...props}>
+        <button className={clsx(classes.button, props.accent && classes.buttonAccent)} {...props}>
             {props.children}
         </button>
     );

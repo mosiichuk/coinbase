@@ -2,6 +2,7 @@ import * as nextImage from 'next/image';
 import theme from "../src/components/theme/theme";
 import {CssBaseline, MuiThemeProvider} from "@material-ui/core";
 import React from "react";
+import {withNextRouter} from "storybook-addon-next-router";
 
 export const parameters = {
     actions: {argTypesRegex: "^on[A-Z].*"},
@@ -17,6 +18,12 @@ export const decorators = [
             </MuiThemeProvider>
         )
     },
+    withNextRouter({
+        path: '/',
+        asPath: '/',
+        query: {},
+        push() {}
+    })
 ];
 
 Object.defineProperty(nextImage, 'default', {
