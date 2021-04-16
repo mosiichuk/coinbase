@@ -20,7 +20,7 @@ interface MenuProps {
 
 const Menu: FC<MenuProps> = ({menuList} : MenuProps) => {
     const classes = useStyles();
-    const router = useRouter()
+    const router = useRouter();
 
     return (
         <div className={classes.menu}>
