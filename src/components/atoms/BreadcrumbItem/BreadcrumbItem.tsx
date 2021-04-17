@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.common.white,
         lineHeight: '18px',
         textTransform: 'uppercase',
+        textDecoration: 'none',
     },
 }));
 

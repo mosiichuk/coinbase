@@ -30,7 +30,7 @@ const leftSlot = <>
     <Typography variant='body1'>Text</Typography>
 </>;
 
-const rightSlot = <Image src='img/hero-contact-us.png' width='570' height='auto'/>;
+const rightSlot = <Image src='/img/hero-contact-us.png' layout= 'responsive' width='570' height='560'/>;
 
 export const Default = () => <HeroSection leftSlot={leftSlot} rightSlot={rightSlot}/>;
 Default.storyName = "Hero Section";

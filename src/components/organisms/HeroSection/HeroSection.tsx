@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
-import {Container, Grid, makeStyles} from "@material-ui/core";
+import {Box, Container, Grid, makeStyles} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     heroSection: {
-        minHeight: '100vh',
+        minHeight: '85vh',
         color: theme.palette.common.white,
         background: ({background}) => `url(${background}) no-repeat center top / cover`,
         display: 'flex',
@@ -30,11 +30,11 @@ const HeroSection: FC<HeroSectionProps> = ({
         <div id='hero-section' className={classes.heroSection}>
             <Container>
                 <Grid container>
-                    <Grid container xs={6} direction="column" justify="center">
+                    <Grid container item xs={6} direction='column' justify='center'>
                         {leftSlot}
                     </Grid>
 
-                    <Grid container xs={6} direction="column" justify="center">
+                    <Grid item xs={6}>
                         {rightSlot}
                     </Grid>
                 </Grid>
