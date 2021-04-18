@@ -35,8 +35,15 @@ const typography = {
         'sans-serif',
     ].join(','),
     h1: {
-        fontSize: 40,
+        fontSize: 25,
         fontWeight: 400,
+        lineHeight: '40px',
+
+        [breakpoints.up('sm')]: {
+            fontSize: 35,
+            lineHeight: '50px',
+        },
+
         [breakpoints.up('lg')]: {
             fontSize: 40,
             lineHeight: '55px',
@@ -45,6 +52,7 @@ const typography = {
     h2: {
         fontSize: 28,
         fontWeight: 700,
+
         [breakpoints.up('lg')]: {
             fontSize: 28,
             lineHeight: '42px',
@@ -53,10 +61,7 @@ const typography = {
     body1: {
         fontSize: 16,
         fontWeight: 400,
-        [breakpoints.up('lg')]: {
-            fontSize: 16,
-            lineHeight: '40px',
-        },
+        lineHeight: '28px',
     },
 };
 
@@ -65,9 +70,11 @@ const overrides = {
         '@global': {
             html: {
                 WebkitFontSmoothing: 'auto',
+                height: '100%',
             },
             body: {
                 color: palette.common.black,
+                backgroundColor: palette.common.white,
             }
         },
     },

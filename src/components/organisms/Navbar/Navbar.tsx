@@ -26,8 +26,11 @@ const menuList = [
 
 const useStyles = makeStyles((theme) => ({
     navbar: {
+        position: 'absolute',
+        zIndex: theme.zIndex.appBar,
+        width: '100%',
         background: theme.palette.common.white,
-        padding: '38px 90px 28px'
+        padding: '30px 5% 20px'
     },
 }));
 
