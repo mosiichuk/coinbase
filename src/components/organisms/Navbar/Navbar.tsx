@@ -4,6 +4,7 @@ import {Container, Grid, makeStyles} from "@material-ui/core";
 import Logo from "../../atoms/Logo/Logo";
 import Menu from "../../molecules/Menu/Menu";
 import Button from "../../atoms/Button/Button";
+import MenuSelect from "../../atoms/MenuSelect/MenuSelect";
 
 const menuList = [
     {
@@ -55,7 +56,13 @@ const Navbar : FC = () => {
                         <Menu menuList={menuList}/>
                     </Grid>
 
-                    <Grid item>
+                    <Grid container item xs={3}
+                          direction="row"
+                          alignItems="center"
+                          justify="space-between">
+
+                        <MenuSelect/>
+
                         <Button>
                             Login
                         </Button>

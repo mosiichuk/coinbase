@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import {Container, Grid, makeStyles} from "@material-ui/core";
+import MenuSelect from "../../atoms/MenuSelect/MenuSelect";
 
 const useStyles = makeStyles((theme) => ({
         heroSection: {
