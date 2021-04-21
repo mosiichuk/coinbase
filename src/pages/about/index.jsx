@@ -1,6 +1,6 @@
 import React from 'react';
 import Breadcrumbs from "components/molecules/Breadcrumbs/Breadcrumbs";
-import {Typography} from "@material-ui/core";
+import {Box, Typography} from "@material-ui/core";
 import Image from "next/image";
 import HeroSection from "components/organisms/HeroSection/HeroSection";
 
@@ -16,22 +16,28 @@ const breadcrumbs = [
 ];
 
 const leftSlot = <>
-    <Breadcrumbs breadcrumbs={breadcrumbs}/>
+    <Box mb={2}>
+        <Breadcrumbs breadcrumbs={breadcrumbs}/>
+    </Box>
 
-    <Typography variant='h1'>
-        <b>
-            Great service,
-            Professional support
-        </b>
-    </Typography>
+    <Box mb={{xs: 2, md: 3}}>
+        <Typography variant='h1'>
+            <b>
+                Great service,
+                Professional support
+            </b>
+        </Typography>
+    </Box>
 
-    <Typography variant='body1'>
-        CoinBase is a platform for trading your bitcoin and
-        giftcard at the best rate, why not give us a trial.
-    </Typography>
+    <Box mb={{xs: 2, md: 3}}>
+        <Typography variant='body1'>
+            CoinBase is a platform for trading your bitcoin and
+            giftcard at the best rate, why not give us a trial.
+        </Typography>
+    </Box>
 </>;
 
-const rightSlot = <Image src='/img/hero-about-us.png' layout='responsive' width={570} height={560}/>;
+const rightSlot = <Box pt={{xs: 5, md: 0}}><Image src='/img/hero-about-us.png' width={549} height={405}/></Box>;
 
 const Homepage = () => {
     return (

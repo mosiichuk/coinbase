@@ -4,7 +4,7 @@ import Image from "next/image";
 import HeroSection from "components/organisms/HeroSection/HeroSection";
 
 const leftSlot = <>
-    <Box mb={{xs:2, md:3}}>
+    <Box mb={{xs: 2, md: 3}}>
         <Typography variant='h1'>
             We provide easy solution
             to exchange your <b>Bitcoin/
@@ -12,7 +12,7 @@ const leftSlot = <>
         </Typography>
     </Box>
 
-    <Box mb={{xs:2, md:3}}>
+    <Box mb={{xs: 2, md: 3}}>
         <Typography variant='body1'>
             CoinBase is a platform for trading your bitcoin and
             giftcard at the best rate, why not give us a trial.
@@ -20,7 +20,7 @@ const leftSlot = <>
     </Box>
 </>;
 
-const rightSlot = <Image src='/img/hero-home.png' layout='responsive' width={570} height={560}/>;
+const rightSlot = <Image src='/img/hero-home.png' width={628} height={519}/>;
 
 const Homepage = () => {
     return (

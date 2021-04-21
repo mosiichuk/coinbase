@@ -1,43 +1,49 @@
 import React, {FC} from 'react';
 import {Container, Grid, makeStyles} from "@material-ui/core";
-import MenuSelect from "../../atoms/MenuSelect/MenuSelect";
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import {useTheme} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-        heroSection: {
-            position: 'relative',
-            minHeight: '100vh',
-            color: theme.palette.common.white,
-            background: theme.palette.primary.gradient,
-            // background: ({background}) => `url(${background}) no-repeat center top / cover`,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-        },
-        shapeDivider: {
-            display: 'none',
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            width: '100%',
-            overflow: 'hidden',
-            lineHeight: 0,
-            [theme.breakpoints.up('md')]: {
-                display: 'block',
-            },
+    heroSection: {
+        position: 'relative',
+        minHeight: 'calc(100vh - 95px)',
+        padding: '5% 0 0',
+        color: theme.palette.common.white,
+        background: theme.palette.primary.gradient,
+        // background: ({background}) => `url(${background}) no-repeat center top / cover`,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
 
-            '& svg': {
-                position: 'relative',
-                display: 'block',
-                width: 'calc(113% + 1.3px)',
-                height: 130,
-            },
-            '& .shape-fill': {
-                fill: theme.palette.common.white
-            }
+        [theme.breakpoints.up('sm')]: {
+            padding: '0',
         }
-    }))
-;
+    },
+    shapeDivider: {
+        display: 'none',
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        width: '100%',
+        overflow: 'hidden',
+        lineHeight: 0,
+
+        [theme.breakpoints.up('md')]: {
+            display: 'block',
+        },
+
+        '& svg': {
+            position: 'relative',
+            display: 'block',
+            width: 'calc(113% + 1.3px)',
+            height: 130,
+        },
+        '& .shape-fill': {
+            fill: theme.palette.common.white
+        }
+    }
+}));
 
 interface HeroSectionProps {
     background?: string,
@@ -51,16 +57,18 @@ const HeroSection: FC<HeroSectionProps> = ({
                                                rightSlot
                                            }: HeroSectionProps) => {
     const classes = useStyles({background: background});
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
 
     return (
         <div id='hero-section' className={classes.heroSection}>
             <Container>
-                <Grid container>
-                    <Grid container item xs={12} md={6} direction='column' justify='center'>
+                <Grid container justify={matches ? 'space-between' : 'center'}>
+                    <Grid container item xs={12} md={5} direction='column' justify='center'>
                         {leftSlot}
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
+                    <Grid container item xs={10} md={5} justify="center">
                         {rightSlot}
                     </Grid>
                 </Grid>
