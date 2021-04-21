@@ -85,6 +85,15 @@ const overrides = {
             }
         }
     },
+    MuiDrawer: {
+        paper: {
+            padding: '10vh 10%',
+
+            [breakpoints.up('md')]: {
+                padding: '10vh 5%',
+            }
+        }
+    }
 };
 
 const theme = createMuiTheme({

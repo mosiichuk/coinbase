@@ -1,75 +1,86 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import Link from 'next/link';
-import {Container, Grid, makeStyles} from "@material-ui/core";
+import {AppBar, Box, Grid, Hidden, IconButton, makeStyles, SwipeableDrawer} from "@material-ui/core";
+import MenuIcon from '@material-ui/icons/Menu';
 import Logo from "../../atoms/Logo/Logo";
 import Menu from "../../molecules/Menu/Menu";
 import Button from "../../atoms/Button/Button";
 import MenuSelect from "../../atoms/MenuSelect/MenuSelect";
-
-const menuList = [
-    {
-        href: '/',
-        title: 'Home',
-    },
-    {
-        href: '/about',
-        title: 'About us',
-    },
-    {
-        href: '/blog',
-        title: 'Blog',
-    },
-    {
-        href: '/contact',
-        title: 'Contact us',
-    },
-];
+import {DEFAULT_MENU_LIST} from '../../molecules/Menu/menulist';
 
 const useStyles = makeStyles((theme) => ({
-    navbar: {
-        position: 'absolute',
-        zIndex: theme.zIndex.appBar,
-        width: '100%',
+    root: {
         background: theme.palette.common.white,
-        padding: '30px 5% 20px'
+        padding: '20px 5%'
     },
 }));
 
-const Navbar : FC = () => {
+const Navbar: FC = () => {
     const classes = useStyles();
+    const [open, setOpen] = useState(false);
+
+    const closeDrawer = () => {
+        setOpen(false);
+    }
+
+    const openDrawer = () => {
+        setOpen(true);
+    }
 
     return (
-        <div className={classes.navbar}>
-            <Container maxWidth={false}>
-                <Grid container
-                      direction="row"
-                      justify="space-between"
-                      alignItems="center">
+        <AppBar position="fixed" classes={{root: classes.root}} elevation={0}>
+            <Grid container
+                  direction="row"
+                  justify="space-between"
+                  alignItems="center">
 
+                <Grid item xs={5} lg={2}>
+                    <Link href="/">
+                        <a><Logo/></a>
+                    </Link>
+                </Grid>
+
+                <Hidden lgUp>
+                    <IconButton aria-label="menu" onClick={openDrawer}>
+                        <MenuIcon/>
+                    </IconButton>
+
+                    <SwipeableDrawer
+                        onClose={closeDrawer}
+                        onOpen={openDrawer}
+                        open={open}
+                        anchor='right'
+                    >
+                        <Box mb={2}>
+                            <Menu menuList={DEFAULT_MENU_LIST}/>
+                        </Box>
+
+                        <Button>
+                            Login
+                        </Button>
+
+                        <MenuSelect/>
+                    </SwipeableDrawer>
+                </Hidden>
+
+                <Hidden mdDown>
                     <Grid item>
-                        <Link href="/">
-                            <a><Logo/></a>
-                        </Link>
+                        <Menu menuList={DEFAULT_MENU_LIST}/>
                     </Grid>
 
-                    <Grid item>
-                        <Menu menuList={menuList}/>
-                    </Grid>
-
-                    <Grid container item xs={3}
+                    <Grid container item xs={4}
                           direction="row"
                           alignItems="center"
-                          justify="space-between">
-
+                          justify="space-around">
                         <MenuSelect/>
 
                         <Button>
                             Login
                         </Button>
                     </Grid>
-                </Grid>
-            </Container>
-        </div>
+                </Hidden>
+            </Grid>
+        </AppBar>
     );
 };
 

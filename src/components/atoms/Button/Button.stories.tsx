@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {Meta} from "@storybook/react";
 import Button from "./Button";
 
@@ -14,3 +14,6 @@ Disabled.storyName = "Disabled button";
 
 export const Accent = () => <Button accent>Text</Button>;
 Accent.storyName = "Accent button";
+Accent.parameters = {
+    backgrounds: {default: 'dark'},
+};

@@ -4,6 +4,9 @@ import Navbar from "components/organisms/Navbar/Navbar";
 
 export default {
     title: 'Organisms/Navbar',
+    parameters: {
+        backgrounds: {default: 'dark'},
+    }
 } as Meta;
 
 export const Default = () => <Navbar/>;

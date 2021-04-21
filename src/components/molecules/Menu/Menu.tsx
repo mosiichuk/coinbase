@@ -5,8 +5,20 @@ import {useRouter} from "next/router";
 
 const useStyles = makeStyles((theme) => ({
     menu: {
+        display: 'flex',
+        flexDirection: 'column',
+        textAlign: 'center',
+
+        [theme.breakpoints.up('lg')]: {
+          flexDirection: 'row',
+        },
+
         '& a:not(:last-child)': {
-            margin: '0 68px 0 0 ',
+            margin: '0 0 15px',
+
+            [theme.breakpoints.up('lg')]: {
+                margin: '0 68px 0 0',
+            },
         }
     },
 }));
@@ -18,7 +30,7 @@ interface MenuProps {
     }[];
 }
 
-const Menu: FC<MenuProps> = ({menuList} : MenuProps) => {
+const Menu: FC<MenuProps> = ({menuList}: MenuProps) => {
     const classes = useStyles();
     const router = useRouter();
 
