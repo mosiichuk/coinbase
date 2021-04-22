@@ -61,7 +61,7 @@ const typography = {
     body1: {
         fontSize: 16,
         fontWeight: 400,
-        lineHeight: '28px',
+        lineHeight: '40px',
     },
 };
 

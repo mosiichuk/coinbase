@@ -7,6 +7,7 @@ const useStyles = makeStyles<Theme, SectionHeaderProps>((theme) => ({
         background: theme.palette.primary.gradient,
         '-webkit-background-clip': 'text',
         '-webkit-text-fill-color': 'transparent',
+        padding: '0 0 15px',
 
         '&::after': {
             content: '""',
@@ -16,9 +17,14 @@ const useStyles = makeStyles<Theme, SectionHeaderProps>((theme) => ({
             width: 50,
             height: 7,
             borderRadius: '5px',
-            bottom: -17,
-            left: ({dashAlign}) => dashAlign === 'center' ? '50%' : 0,
-            transform: ({dashAlign}) => dashAlign === 'center' ? 'translateX(-50%)' : 'none',
+            bottom: 0,
+            left: '50%',
+            transform: 'translateX(-50%)',
+
+            [theme.breakpoints.up('md')]: {
+                left: ({dashAlign}) => dashAlign === 'center' ? '50%' : 0,
+                transform: ({dashAlign}) => dashAlign === 'center' ? 'translateX(-50%)' : 'none',
+            }
         }
     },
 }));
