@@ -30,7 +30,7 @@ const leftSlot = <>
     </Box>
 
     <Box mb={{xs: 2, md: 3}}>
-        <Typography variant='body1'>
+        <Typography variant='subtitle1'>
             Get to know the latest stuff about our services
             via our blog post.
         </Typography>

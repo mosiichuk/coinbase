@@ -49,6 +49,16 @@ const typography = {
             lineHeight: '55px',
         },
     },
+    subtitle1: {
+        fontSize: 16,
+        fontWeight: 400,
+        lineHeight: '25px',
+
+        [breakpoints.up('lg')]: {
+            fontSize: 18,
+            lineHeight: '27px',
+        },
+    },
     h2: {
         fontSize: 28,
         fontWeight: 700,

@@ -32,7 +32,7 @@ const leftSlot = <>
     </Box>
 
     <Box mb={{xs: 2, md: 3}}>
-        <Typography variant='body1'>
+        <Typography variant='subtitle1'>
             CoinBase is a platform for trading your bitcoin and
             giftcard at the best rate, why not give us a trial.
         </Typography>
