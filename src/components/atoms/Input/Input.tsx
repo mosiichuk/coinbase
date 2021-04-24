@@ -1,13 +1,14 @@
 import React, {FC, InputHTMLAttributes} from 'react';
 import {makeStyles} from "@material-ui/core";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement & HTMLTextAreaElement> {
     label: string,
     multiline?: boolean,
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     root: {
+        fontFamily: '"Poppins",sans-serif',
         fontWeight: 400,
         fontSize: 14,
         lineHeight: '20px',
@@ -26,15 +27,15 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Input: FC<InputProps> = ({type, label, required, multiline}: InputProps) => {
+const Input: FC<InputProps> = ({label, required, multiline, ...props}: InputProps) => {
     const placeholder = required ? label + '*' : label;
     const classes = useStyles();
 
     return (
         <>
             {multiline
-                ? <textarea placeholder={placeholder} required={required} className={classes.root}/>
-                : <input type={type} placeholder={placeholder} required={required} className={classes.root}/>
+                ? <textarea placeholder={placeholder} required={required} className={classes.root} {...props}/>
+                : <input placeholder={placeholder} required={required} className={classes.root} {...props}/>
             }
         </>
     );
