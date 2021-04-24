@@ -27,6 +27,10 @@ const palette = {
         main: '#000000',
         gradient: 'linear-gradient(178.18deg, #FD749B -13.56%, #281AC8 158.3%)'
     },
+    text: {
+        primary: '#333333',
+        secondary: '#FFFFFF'
+    }
 };
 
 const typography = {
@@ -67,6 +71,11 @@ const typography = {
             fontSize: 28,
             lineHeight: '42px',
         },
+    },
+    h3: {
+        fontWeight: 700,
+        fontSize: 18,
+        lineHeight: '24px',
     },
     body1: {
         fontSize: 16,

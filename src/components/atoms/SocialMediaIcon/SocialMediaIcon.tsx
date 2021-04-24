@@ -8,7 +8,7 @@ interface SocialMediaIconProps {
 const SocialMediaIcon: FC<SocialMediaIconProps> = ({type}: SocialMediaIconProps) => {
     return (
         <Image
-            src={`icons/${type}.svg`}
+            src={`/icons/${type}.svg`}
             alt={`Logo of ${type}`}
             width={12}
             height={13}
