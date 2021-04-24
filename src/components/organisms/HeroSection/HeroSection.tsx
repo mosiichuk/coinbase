@@ -1,7 +1,8 @@
 import React, {FC} from 'react';
-import {Container, Grid, makeStyles} from "@material-ui/core";
+import {Container, Grid, Hidden, makeStyles} from "@material-ui/core";
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import {useTheme} from '@material-ui/core/styles';
+import ShapeDivider from "components/atoms/ShapeDivider/ShapeDivider";
 
 const useStyles = makeStyles((theme) => ({
     heroSection: {
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
             width: 'calc(113% + 1.3px)',
             height: 130,
         },
-        '& .shape-fill': {
+        '& path': {
             fill: theme.palette.common.white
         }
     }
@@ -74,15 +75,13 @@ const HeroSection: FC<HeroSectionProps> = ({
                 </Grid>
             </Container>
 
-            <div className={classes.shapeDivider}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                     preserveAspectRatio="none">
-                    <path
-                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                        className="shape-fill">
-                    </path>
-                </svg>
-            </div>
+            <Hidden smDown>
+                <ShapeDivider bottom height={130} widthPercent={100}>
+                    <svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                        <path viewBox="0 0 1200 120" d="M0 73.2654C20.448 83.8096 80.4987 97.386 256.434 80.9949C516.959 56.7231 726.149 -77.66 1051.48 63.827C1288.37 166.846 1436.8 162.529 1500 152.566V170.608H0V73.2654Z"/>
+                    </svg>
+                </ShapeDivider>
+            </Hidden>
         </div>
     );
 };

@@ -13,13 +13,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const GenericTemplate : FC = ({children}) => {
+const GenericTemplate: FC = ({children}) => {
     const classes = useStyles();
 
     return (
         <>
             <Navbar/>
-            <div className={classes.offset}></div>
+            <div className={classes.offset}/>
             {children}
             <Footer/>
         </>
