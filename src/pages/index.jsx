@@ -128,6 +128,37 @@ const Homepage = () => {
                     </Grid>
                 </Container>
             </Box>
+
+            <Box pt={12} pb={15}>
+                <Container>
+                    <Grid container justify='center'>
+                        <Grid item xs={12} sm={6} md={4} className={classes.smSecondMdFirst}>
+                            <Box mb={{xs: 2, md: 4}} textAlign='center'>
+                                <SectionHeader dashAlign='center'>
+                                    Download our app
+                                </SectionHeader>
+                            </Box>
+
+                            <Box mb={{xs: 2, md: 4}} textAlign='center'>
+                                <Typography variant="body1">
+                                    Discover exclusive deals and discounts with
+                                    our mobile experience.
+                                </Typography>
+                            </Box>
+
+                            <Box display='flex' justifyContent='space-around'>
+                                <a href='https://www.apple.com/app-store/'>
+                                    <Image src='/img/app-store.png' width={132} height={40}/>
+                                </a>
+
+                                <a href='https://play.google.com/'>
+                                    <Image src='/img/google-play.png' width={132} height={40}/>
+                                </a>
+                            </Box>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
         </>
     );
 };
