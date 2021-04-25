@@ -26,9 +26,8 @@ const useStyles = makeStyles((theme) => ({
         background: theme.palette.primary.secondaryGradient,
         padding: '242px 0 176px',
     },
-    mobile: {
+    gradientBackground: {
         background: theme.palette.primary.secondaryGradient,
-        height: 531,
     },
 }));
 
@@ -100,7 +99,7 @@ const Homepage = () => {
                 </Container>
             </Box>
 
-            <Box position='relative' className={classes.transferSection}>
+            <Box position='relative' className={classes.transferSection} mb={{xs: 10}}>
                 <Hidden smDown>
                     <ShapeDivider top height={205}>
                         <svg viewBox="0 0 1501 206" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio='none'>
@@ -126,7 +125,7 @@ const Homepage = () => {
                 </Hidden>
             </Box>
 
-            <Box pt={12} pb={15}>
+            <Box mb={15}>
                 <Container>
                     <Grid container justify='space-between'>
                         <Grid item xs={12} md={5} className={classes.smSecondMdFirst}>
@@ -165,7 +164,7 @@ const Homepage = () => {
                 </Container>
             </Box>
 
-            <Box pt={12} pb={15}>
+            <Box mb={{xs: 6, md: 0}}>
                 <Container>
                     <Grid container justify='center'>
                         <Grid item xs={12} sm={6} md={4} className={classes.smSecondMdFirst}>
@@ -196,30 +195,47 @@ const Homepage = () => {
                 </Container>
             </Box>
 
-            <Box position='relative'>
-                <Box position='relative' className={classes.mobile}>
-                    <Hidden smDown>
-                        <ShapeDivider top height={121}>
-                            <svg viewBox="0 0 1500 122" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio='none'>
-                                <path
-                                    d="M225.342 59.4209C501.931 78.0835 724.02 181.41 1069.42 72.6214C1237.09 19.8099 1362.93 3.60655 1448.1 0.965402L1500 1L1500 2.86892e-06L2.12783e-05 0L2.12783e-05 56C40.4754 52.1185 109.194 51.5839 225.342 59.4209Z"/>
-                            </svg>
-                        </ShapeDivider>
-                    </Hidden>
-                </Box>
-                <Box height={190}>
+            <Box position='relative'
+                 pt={{xs: 6, md: 19}}
+                 pb={{xs: 6, md: 0}}
+                 mb={{xs: 8, lg: 13}}
+                 className={classes.gradientBackground}
+            >
+                <Hidden smDown>
+                    <ShapeDivider top height={121}>
+                        <svg viewBox="0 0 1500 121" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio='none'>
+                            <path
+                                d="M225.342 59.4209C501.931 78.0835 724.02 181.41 1069.42 72.6214C1237.09 19.8099 1362.93 3.60655 1448.1 0.965402L1500 1L1500 2.86892e-06L2.12783e-05 0L2.12783e-05 56C40.4754 52.1185 109.194 51.5839 225.342 59.4209Z"/>
+                        </svg>
+                    </ShapeDivider>
+                </Hidden>
 
-                </Box>
-
-                <Box position="absolute" width='100%' top={156} display="flex" justifyContent="center">
+                <Box
+                    position='relative'
+                    zIndex={5}
+                    width={{xs: '90%', md: '100%'}}
+                    mx='auto'
+                    display="flex"
+                    justifyContent="center"
+                >
                     <Box mr={3}>
                         <Image src='/img/iphone-1.png' width={283} height={566}/>
                     </Box>
                     <Image src='/img/iphone-2.png' width={283} height={566}/>
                 </Box>
+
+                <Box
+                    position='absolute'
+                    display={{xs: 'none', md: 'block'}}
+                    width='100%'
+                    height={168}
+                    bottom={0}
+                    bgcolor='common.white'
+                    zIndex={1}
+                />
             </Box>
 
-            <Box pt={{xs: 4, md: 8, lg: 13}} pb={{xs: 7, md: 10, lg: 15}}>
+            <Box mb={{xs: 7, md: 10, lg: 15}}>
                 <Container>
                     <Grid container justify='center'>
                         <Grid item xs={12} md={6} lg={4}>
