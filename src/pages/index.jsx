@@ -23,12 +23,11 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     transferSection: {
-        background: theme.palette.primary.gradient,
+        background: theme.palette.primary.secondaryGradient,
         padding: '242px 0 176px',
     },
     mobile: {
-        background: theme.palette.primary.gradient,
-        // padding: '155px 0 376px',
+        background: theme.palette.primary.secondaryGradient,
         height: 531,
     },
 }));

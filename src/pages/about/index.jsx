@@ -47,6 +47,27 @@ const Homepage = () => {
         <>
             <HeroSection leftSlot={leftSlot} rightSlot={rightSlot}/>
 
+            <Box pt={{xs: 3, md: 5}} pb={{xs: 3, md: 8}}>
+                <Container>
+                    <Grid container justify='center'>
+                        <Grid item xs={12} sm={10} md={6}>
+                            <Box mb={{xs: 2, md: 3}} textAlign='center'>
+                                <SectionHeader dashAlign='center' fontSize={18}>
+                                    “Morbi sagittis ultricies ex, a tempus lorem suscipit non. Donec semper leo ut
+                                    lobortis condimentum. Orci varius natoque penatibus et magnis”
+                                </SectionHeader>
+                            </Box>
+
+                            <Box textAlign='center'>
+                                <Typography variant="body1">
+                                    Ramon Ridwan • CEO CoinBase
+                                </Typography>
+                            </Box>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
+
             <Box pt={{xs: 4, md: 8, lg: 13}} pb={{xs: 7, md: 10, lg: 15}}>
                 <Container>
                     <Grid container justify='center'>

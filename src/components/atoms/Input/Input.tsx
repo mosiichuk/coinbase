@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
         padding: '17px 0 16px 26px',
         border: 'double 1px transparent',
         borderRadius: '100px',
-        backgroundImage: `linear-gradient(white, white), ${theme.palette.primary.gradient}`,
+        backgroundImage: `linear-gradient(white, white), ${theme.palette.primary.primaryGradient}`,
         backgroundOrigin: 'border-box',
         backgroundClip: 'padding-box, border-box',
     },

@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: '21px',
         textTransform: 'uppercase',
         borderRadius: 100,
-        background: theme.palette.primary.gradient,
+        background: theme.palette.primary.secondaryGradient,
         border: 'none',
         padding: '17px 56px',
         cursor: 'pointer',
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
     buttonAccent: {
         position: 'relative',
-        background: theme.palette.primary.gradient,
+        background: theme.palette.primary.secondaryGradient,
         '-webkit-background-clip': 'text',
         '-webkit-text-fill-color': 'transparent',
 

@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: theme.typography.fontWeightBold,
 
         '&:hover': {
-            background: theme.palette.primary.gradient,
+            background: theme.palette.primary.secondaryGradient,
             '-webkit-background-clip': 'text',
             '-webkit-text-fill-color': 'transparent',
         }

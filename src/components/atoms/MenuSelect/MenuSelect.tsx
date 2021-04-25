@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
         '&:hover': {
             color: theme.palette.common.white,
-            background: theme.palette.primary.gradient,
+            background: theme.palette.primary.secondaryGradient,
         }
     },
 }));

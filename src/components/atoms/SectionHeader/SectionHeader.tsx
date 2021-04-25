@@ -4,16 +4,17 @@ import {makeStyles, Theme, Typography,} from "@material-ui/core";
 const useStyles = makeStyles<Theme, SectionHeaderProps>((theme) => ({
     header: {
         position: 'relative',
-        background: theme.palette.primary.gradient,
+        background: theme.palette.primary.secondaryGradient,
         '-webkit-background-clip': 'text',
         '-webkit-text-fill-color': 'transparent',
         padding: '0 0 15px',
+        fontSize: ({fontSize}) => fontSize,
 
         '&::after': {
             content: '""',
             position: 'absolute',
             display: 'block',
-            background: theme.palette.primary.gradient,
+            background: theme.palette.primary.secondaryGradient,
             width: 50,
             height: 7,
             borderRadius: '5px',
@@ -31,11 +32,12 @@ const useStyles = makeStyles<Theme, SectionHeaderProps>((theme) => ({
 
 interface SectionHeaderProps {
     dashAlign?: 'left' | 'center',
-    children: React.ReactNode
+    children: React.ReactNode,
+    fontSize?: number,
 }
 
-const SectionHeader: FC<SectionHeaderProps> = ({dashAlign = 'left', children}) => {
-    const style = useStyles({dashAlign} as SectionHeaderProps);
+const SectionHeader: FC<SectionHeaderProps> = ({dashAlign = 'left', fontSize, children}) => {
+    const style = useStyles({dashAlign, fontSize} as SectionHeaderProps);
 
     return (
         <Typography className={style.header} variant="h2">

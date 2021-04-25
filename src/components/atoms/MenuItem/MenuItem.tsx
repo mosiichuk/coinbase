@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: 'none',
 
         '&:hover': {
-            background: theme.palette.primary.gradient,
+            background: theme.palette.primary.secondaryGradient,
             '-webkit-background-clip': 'text',
             '-webkit-text-fill-color': 'transparent',
         }
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
             content: '""',
             position: 'absolute',
             display: 'block',
-            background: theme.palette.primary.gradient,
+            background: theme.palette.primary.secondaryGradient,
             width: 22,
             height: 3,
             borderRadius: '5px',

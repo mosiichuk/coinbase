@@ -3,11 +3,13 @@ import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
 
 declare module "@material-ui/core/styles/createPalette" {
     interface PaletteColor {
-        gradient: string;
+        primaryGradient: string;
+        secondaryGradient: string,
     }
 
     interface SimplePaletteColorOptions {
-        gradient: string;
+        primaryGradient: string;
+        secondaryGradient: string,
     }
 }
 
@@ -25,7 +27,8 @@ const palette = {
     },
     primary: {
         main: '#000000',
-        gradient: 'linear-gradient(178.18deg, #FD749B -13.56%, #281AC8 158.3%)'
+        primaryGradient: 'linear-gradient(174.48deg, #FD749B -12.41%, #281AC8 88.56%)',
+        secondaryGradient: 'linear-gradient(178.18deg, #FD749B -13.56%, #281AC8 158.3%)'
     },
     text: {
         primary: '#333333',

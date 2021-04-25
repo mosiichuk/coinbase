@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
         minHeight: 'calc(100vh - 95px)',
         padding: '5% 0 0',
         color: theme.palette.common.white,
-        background: theme.palette.primary.gradient,
+        background: theme.palette.primary.primaryGradient,
         // background: ({background}) => `url(${background}) no-repeat center top / cover`,
         display: 'flex',
         flexDirection: 'column',
