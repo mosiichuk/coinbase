@@ -5,6 +5,7 @@ import HeroSection from "components/organisms/HeroSection/HeroSection";
 import SectionHeader from "components/atoms/SectionHeader/SectionHeader";
 import Button from "components/atoms/Button/Button";
 import ShapeDivider from "components/atoms/ShapeDivider/ShapeDivider";
+import Input from "components/atoms/Input/Input";
 
 const useStyles = makeStyles((theme) => ({
     smFirstMdSecond: {
@@ -219,10 +220,10 @@ const Homepage = () => {
                 </Box>
             </Box>
 
-            <Box pt={12} pb={15}>
+            <Box pt={{xs: 4, md: 8, lg: 13}} pb={{xs: 7, md: 10, lg: 15}}>
                 <Container>
                     <Grid container justify='center'>
-                        <Grid item xs={12} sm={6} md={4} className={classes.smSecondMdFirst}>
+                        <Grid item xs={12} md={6} lg={4}>
                             <Box mb={{xs: 2, md: 4}} textAlign='center'>
                                 <SectionHeader dashAlign='center'>
                                     Subscribe our newsletter
@@ -234,13 +235,17 @@ const Homepage = () => {
                                     Subscribe to our newsletter for daily/weekly update of our products and services.
                                 </Typography>
                             </Box>
+                        </Grid>
+                        <Grid item xs={12} container justify='center'>
+                            <Box mr={{sm: 1}} mb={{xs: 2, sm: 0}} width={{xs: '100%', sm: 388}}>
+                                <Input label="Email" type="email" accent/>
+                            </Box>
 
-                            <Box textAlign={{xs: 'center', md: 'right'}}>
+                            <Box>
                                 <Button>
                                     Discover
                                 </Button>
                             </Box>
-
                         </Grid>
                     </Grid>
                 </Container>

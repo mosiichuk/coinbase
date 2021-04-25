@@ -27,3 +27,10 @@ export const Multiline = () => (
     </Box>
 );
 Multiline.storyName = "Multiline input";
+
+export const Accent = () => (
+    <Box width={300}>
+        <Input label="Name" type="text" required accent/>
+    </Box>
+);
+Accent.storyName = "Accent input";
