@@ -1,6 +1,6 @@
 import React from 'react';
 import Breadcrumbs from "components/molecules/Breadcrumbs/Breadcrumbs";
-import {Box, Container, Grid, Typography} from "@material-ui/core";
+import {Box, Container, Grid, Paper, Typography} from "@material-ui/core";
 import Image from "next/image";
 import HeroSection from "components/organisms/HeroSection/HeroSection";
 import SectionHeader from "components/atoms/SectionHeader/SectionHeader";
@@ -47,7 +47,7 @@ const Homepage = () => {
         <>
             <HeroSection leftSlot={leftSlot} rightSlot={rightSlot}/>
 
-            <Box pt={{xs: 3, md: 5}} pb={{xs: 3, md: 8}}>
+            <Box pt={{xs: 3, md: 5}} mb={{xs: 3, md: 8}}>
                 <Container>
                     <Grid container justify='center'>
                         <Grid item xs={12} sm={10} md={6}>
@@ -68,7 +68,49 @@ const Homepage = () => {
                 </Container>
             </Box>
 
-            <Box pt={{xs: 4, md: 8, lg: 13}} pb={{xs: 7, md: 10, lg: 15}}>
+            <Box mb={{xs: 8, md: 13}}>
+                <Container>
+                    <Paper variant="outlined" elevation={0}>
+                        <Box pt={{xs: 4}} pb={{xs: 3, md: 7}}>
+                            <Grid container justify='center'>
+                                <Box display='flex' flexDirection='column' alignItems='center' textAlign='center'
+                                     width={{xs: '90%', sm: '75%', md: '45%'}}>
+                                    <Box mb={{xs: 3, md: 5}}>
+                                        <Image
+                                            src='/img/coinbase-welcome.png'
+                                            width={560}
+                                            height={383}
+                                        />
+                                    </Box>
+
+                                    <Box mb={{xs: 2, md: 4}}>
+                                        <SectionHeader dashAlign='center'>
+                                            About CoinBase
+                                        </SectionHeader>
+                                    </Box>
+
+                                    <Box mb={{xs: 2, md: 4}}>
+                                        <Typography variant="body1">
+                                            CoinBase is an online site and a p2admin platform that allows users to buy,
+                                            sell and/ or exchange digital and fiat assets safely. Owned and managed by
+                                            CoinBase Business Services established and Incorporated in Nigeria.
+                                        </Typography>
+                                    </Box>
+
+                                    <Box display='flex' justifyContent='space-between' maxWidth={252} width='100%'>
+                                        <Image src='/icons/diamond.svg' width={36} height={36}/>
+                                        <Image src='/icons/medal.svg' width={36} height={36}/>
+                                        <Image src='/icons/review.svg' width={36} height={36}/>
+                                        <Image src='/icons/support.svg' width={36} height={36}/>
+                                    </Box>
+                                </Box>
+                            </Grid>
+                        </Box>
+                    </Paper>
+                </Container>
+            </Box>
+
+            <Box pt={{xs: 4, md: 8, lg: 13}} mb={{xs: 7, md: 10, lg: 15}}>
                 <Container>
                     <Grid container justify='center'>
                         <Grid item xs={12} md={6} lg={4}>

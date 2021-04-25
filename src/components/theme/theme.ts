@@ -115,6 +115,17 @@ const overrides = {
                 padding: '10vh 5%',
             }
         }
+    },
+    MuiPaper: {
+        rounded: {
+            borderRadius: 30.
+        },
+        outlined: {
+            border: 'solid 1px transparent',
+            backgroundImage: `linear-gradient(white, white), ${palette.primary.primaryGradient}`,
+            backgroundOrigin: 'border-box',
+            backgroundClip: 'padding-box, border-box',
+        }
     }
 };
 
