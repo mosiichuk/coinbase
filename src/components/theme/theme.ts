@@ -1,5 +1,6 @@
 import {createMuiTheme,} from "@material-ui/core";
 import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
+import {Shadows} from "@material-ui/core/styles/shadows";
 
 declare module "@material-ui/core/styles/createPalette" {
     interface PaletteColor {
@@ -14,6 +15,13 @@ declare module "@material-ui/core/styles/createPalette" {
 }
 
 const breakpoints = createBreakpoints({});
+
+const shadows = [
+    "none",
+    "0px 50px 100px rgba(0, 0, 0, 0.1)",
+    ...Array<string>(23).fill('none')
+] as string[];
+
 
 const palette = {
     common: {
@@ -132,7 +140,8 @@ const overrides = {
 const theme = createMuiTheme({
     typography: typography,
     palette: palette,
-    overrides: overrides
+    overrides: overrides,
+    shadows: shadows as Shadows,
 });
 
 export default theme;

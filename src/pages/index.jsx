@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Container, Grid, Hidden, makeStyles, Typography} from "@material-ui/core";
+import {Box, Container, Grid, Hidden, makeStyles, Paper, Typography} from "@material-ui/core";
 import Image from "next/image";
 import HeroSection from "components/organisms/HeroSection/HeroSection";
 import SectionHeader from "components/atoms/SectionHeader/SectionHeader";
@@ -158,6 +158,94 @@ const Homepage = () => {
                                     width={514}
                                     height={413}
                                 />
+                            </Box>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
+
+            <Box position='relative' mb={{xs: 10, md: 17}} pt={{xs: 0, md: 15}}>
+                <Hidden smDown>
+                    <Box
+                        position='absolute'
+                        top={0}
+                        width='100%'
+                        height={390}
+                        className={classes.gradientBackground}
+                        zIndex={-1}
+                    >
+                            <ShapeDivider bottom height={121}>
+                                <svg width="1500" height="122" viewBox="0 0 1500 122" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg" preserveAspectRatio='none'>
+                                    <path
+                                        d="M432.981 49.0763C778.377 -59.7125 1000.47 43.6141 1277.05 62.2766C1391.07 69.97 1459.25 69.0771 1500 65.3698V122H0V120.497C81.5066 123.63 225.191 114.524 432.981 49.0763Z"
+                                        fill="white"/>
+                                </svg>
+                            </ShapeDivider>
+                    </Box>
+                </Hidden>
+
+                <Container>
+                    <Grid container>
+                        <Grid item xs={12}>
+                            <Box component={Paper} boxShadow={{xs: 0, sm: 1}}>
+                                <Box
+                                    pt={{xs: 3, sm: 9}}
+                                    pb={{xs: 3, sm: 10}}
+                                >
+                                    <Box mb={{xs: 5, md: 10}} textAlign='center'>
+                                        <SectionHeader dashAlign='center'>
+                                            Trade from anywhere
+                                        </SectionHeader>
+                                    </Box>
+
+                                    <Box display='flex' justifyContent='center' alignItems='center'
+                                         flexDirection={{xs: 'column', sm: 'row'}}>
+                                        <Box
+                                            component={Paper}
+                                            mr={{xs: 0, sm: 8}}
+                                            mb={{xs: 6, sm: 0}}
+                                            variant='outlined'
+                                            pt={{xs: 5}}
+                                            pb={{xs: 6}}
+                                            width={262}
+                                            textAlign='center'
+                                        >
+                                            <Box mb={{xs: 6}}>
+                                                <Image
+                                                    src='/icons/bitcoin.svg'
+                                                    width={58}
+                                                    height={58}
+                                                />
+                                            </Box>
+
+                                            <Box component='p' fontWeight='fontWeightBold' fontSize={16}>
+                                                Bitcoin
+                                            </Box>
+                                        </Box>
+
+                                        <Box
+                                            component={Paper}
+                                            variant='outlined'
+                                            pt={{xs: 5}}
+                                            pb={{xs: 6}}
+                                            width={262}
+                                            textAlign='center'
+                                        >
+                                            <Box mb={{xs: 6}}>
+                                                <Image
+                                                    src='/icons/giftcard.svg'
+                                                    width={58}
+                                                    height={58}
+                                                />
+                                            </Box>
+
+                                            <Box component='p' fontWeight='fontWeightBold' fontSize={16}>
+                                                Gift Cards
+                                            </Box>
+                                        </Box>
+                                    </Box>
+                                </Box>
                             </Box>
                         </Grid>
                     </Grid>
