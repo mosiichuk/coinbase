@@ -4,6 +4,7 @@ import {Box, Container, Grid, makeStyles, Typography} from "@material-ui/core";
 import Image from "next/image";
 import HeroSection from "components/organisms/HeroSection/HeroSection";
 import BlogCard from "components/organisms/BlogCard/BlogCard";
+import Pagination from "components/organisms/Pagination/Pagination";
 
 const useStyles = makeStyles((theme) => ({
     blogsContainer: {
@@ -85,12 +86,14 @@ const Homepage = () => {
             <Box pt={{xs: 7, md: 10}} pb={{xs: 9, md: 18}}>
                 <Container>
                     <Grid container justify='center'>
-                        <Grid item xs={12} md={10}>
+                        <Grid container item xs={12} md={10} justify='center'>
                             <Box className={classes.blogsContainer} mb={{xs: 7, md: 15}}>
                                 {blogs.map(blog => (
-                                    <BlogCard blog={blog}/>
+                                    <BlogCard blog={blog} key={blog.thumbnail}/>
                                 ))}
                             </Box>
+
+                            <Pagination/>
                         </Grid>
                     </Grid>
                 </Container>
