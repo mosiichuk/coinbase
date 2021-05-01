@@ -35,7 +35,7 @@ const palette = {
     },
     primary: {
         main: '#000000',
-        primaryGradient: 'linear-gradient(174.48deg, #FD749B -12.41%, #281AC8 88.56%)',
+        primaryGradient: 'linear-gradient(178.18deg, #FD749B -13.56%, #281AC8 158.3%)',
         secondaryGradient: 'linear-gradient(178.18deg, #FD749B -13.56%, #281AC8 158.3%)'
     },
     text: {
@@ -133,6 +133,24 @@ const overrides = {
             backgroundImage: `linear-gradient(white, white), ${palette.primary.primaryGradient}`,
             backgroundOrigin: 'border-box',
             backgroundClip: 'padding-box, border-box',
+        }
+    },
+    MuiTimelineDot: {
+        root: {
+            borderWidth: 0,
+            width: 16,
+            height: 8,
+            padding: '0px 0px',
+            marginTop: 0,
+            marginBottom: 0,
+            background: `${palette.primary.primaryGradient}`,
+            backgroundRepeat: 'no-repeat',
+        }
+    },
+    MuiTimelineConnector: {
+        root: {
+            width: 5,
+            backgroundColor: '#DA65A3',
         }
     }
 };

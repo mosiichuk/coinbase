@@ -1,11 +1,32 @@
 import React from 'react';
 import Breadcrumbs from "components/molecules/Breadcrumbs/Breadcrumbs";
-import {Box, Container, Grid, Paper, Typography} from "@material-ui/core";
+import {Container, Grid, Hidden, makeStyles, Paper, Theme, Typography} from "@material-ui/core";
 import Image from "next/image";
 import HeroSection from "components/organisms/HeroSection/HeroSection";
 import SectionHeader from "components/atoms/SectionHeader/SectionHeader";
 import Input from "components/atoms/Input/Input";
 import Button from "components/atoms/Button/Button";
+import MuiTimeLine from "@material-ui/lab/Timeline";
+import TimelineItem from "@material-ui/lab/TimelineItem";
+import TimelineSeparator from "@material-ui/lab/TimelineSeparator";
+import TimelineConnector from "@material-ui/lab/TimelineConnector";
+import TimelineContent from "@material-ui/lab/TimelineContent";
+import TimelineDot from "@material-ui/lab/TimelineDot";
+import TimeLineText from "components/atoms/TimeLineText/TimeLineText";
+import TimelineOppositeContent from "@material-ui/lab/TimelineOppositeContent";
+import Box from "@material-ui/core/Box";
+
+const useStyles = makeStyles((theme) => ({
+    emptyDot: {
+        height: 0,
+    },
+    missingOppositeContent: {
+        '&::before': {
+            padding: 0,
+            flexGrow: 0,
+        },
+    }
+}));
 
 const breadcrumbs = [
     {
@@ -43,6 +64,8 @@ const leftSlot = <>
 const rightSlot = <Box pt={{xs: 5, md: 0}}><Image src='/img/hero-about-us.png' width={549} height={405}/></Box>;
 
 const Homepage = () => {
+    const classes = useStyles();
+
     return (
         <>
             <HeroSection leftSlot={leftSlot} rightSlot={rightSlot}/>
@@ -110,7 +133,187 @@ const Homepage = () => {
                 </Container>
             </Box>
 
-            <Box pt={{xs: 4, md: 8, lg: 13}} mb={{xs: 7, md: 10, lg: 15}}>
+            <Box mb={{xs: 7, md: 10, lg: 15}}>
+                <Container>
+                    <Grid container justify='center'>
+                        <Grid item xs={12}>
+                            <Box mb={{xs: 5, md: 10}} textAlign='center'>
+                                <SectionHeader dashAlign='center'>
+                                    Our History
+                                </SectionHeader>
+                            </Box>
+                            <Hidden smDown>
+                                <MuiTimeLine align="alternate">
+                                    <TimelineItem>
+                                        <TimelineSeparator>
+                                            <TimelineConnector/>
+                                        </TimelineSeparator>
+                                        <TimelineContent>
+                                        </TimelineContent>
+                                    </TimelineItem>
+
+                                    <TimelineItem>
+                                        <TimelineSeparator>
+                                            <TimelineDot/>
+                                            <TimelineConnector/>
+                                        </TimelineSeparator>
+
+                                        <TimelineContent>
+                                            <TimeLineText
+                                                title={'May 2010'}
+                                                description={'Ut enim mi, mattis at sollicitudin rhoncus, rhoncus eget sem. Curabitur aliquam tellus eu nisl\n' +
+                                                '                        suscipit, at vestibulum ex rutrum. Nulla facilisi. Cras ullamcorper pellentesque orci, nec\n' +
+                                                '                        vestibulum nibh.uspendisse'}
+                                            />
+                                        </TimelineContent>
+                                    </TimelineItem>
+
+                                    <TimelineItem>
+                                        <TimelineSeparator>
+                                            <TimelineDot/>
+                                            <TimelineConnector/>
+                                        </TimelineSeparator>
+                                        <TimelineContent>
+                                        </TimelineContent>
+                                    </TimelineItem>
+
+                                    <TimelineItem>
+                                        <TimelineOppositeContent>
+                                            <TimeLineText
+                                                title={'May 2017'}
+                                                description={'Ut enim mi, mattis at sollicitudin rhoncus, rhoncus eget sem. Curabitur aliquam tellus eu nisl\n' +
+                                                '                        suscipit, at vestibulum ex rutrum. Nulla facilisi. Cras ullamcorper pellentesque orci, nec\n' +
+                                                '                        vestibulum nibh.uspendisse'}
+                                            />
+                                        </TimelineOppositeContent>
+                                        <TimelineSeparator>
+                                            <TimelineDot/>
+                                            <TimelineConnector/>
+                                        </TimelineSeparator>
+                                        <TimelineContent/>
+                                    </TimelineItem>
+
+                                    <TimelineItem>
+                                        <TimelineSeparator>
+                                            <TimelineDot/>
+                                            <TimelineConnector/>
+                                        </TimelineSeparator>
+                                        <TimelineContent>
+                                        </TimelineContent>
+                                    </TimelineItem>
+
+                                    <TimelineItem>
+                                        <TimelineSeparator>
+                                            <TimelineDot/>
+                                            <TimelineConnector/>
+                                        </TimelineSeparator>
+                                        <TimelineContent>
+                                            <TimeLineText
+                                                title={'May 2019'}
+                                                description={'Ut enim mi, mattis at sollicitudin rhoncus, rhoncus eget sem. Curabitur aliquam tellus eu nisl\n' +
+                                                '                        suscipit, at vestibulum ex rutrum. Nulla facilisi. Cras ullamcorper pellentesque orci, nec\n' +
+                                                '                        vestibulum nibh.uspendisse'}
+                                            />
+                                        </TimelineContent>
+                                    </TimelineItem>
+
+                                    <TimelineItem>
+                                        <TimelineSeparator>
+                                            <TimelineDot/>
+                                            <TimelineConnector/>
+                                        </TimelineSeparator>
+                                        <TimelineContent>
+                                        </TimelineContent>
+                                    </TimelineItem>
+
+                                    <TimelineItem>
+                                        <TimelineSeparator>
+                                            <TimelineConnector/>
+                                        </TimelineSeparator>
+                                        <TimelineContent>
+                                        </TimelineContent>
+                                    </TimelineItem>
+                                </MuiTimeLine>
+
+                            </Hidden>
+
+                            <Hidden smUp>
+                                <MuiTimeLine align="left">
+                                    <TimelineItem classes={{missingOppositeContent: classes.missingOppositeContent}}>
+                                        <TimelineSeparator>
+                                            <TimelineDot className={classes.emptyDot}/>
+                                            <TimelineConnector/>
+                                        </TimelineSeparator>
+                                        <TimelineContent>
+                                        </TimelineContent>
+                                    </TimelineItem>
+
+                                    <TimelineItem classes={{missingOppositeContent: classes.missingOppositeContent}}>
+                                        <TimelineSeparator>
+                                            <TimelineDot/>
+                                            <TimelineConnector/>
+                                        </TimelineSeparator>
+
+                                        <TimelineContent>
+                                            <TimeLineText
+                                                title={'May 2010'}
+                                                description={'Ut enim mi, mattis at sollicitudin rhoncus, rhoncus eget sem. Curabitur aliquam tellus eu nisl\n' +
+                                                '                        suscipit, at vestibulum ex rutrum. Nulla facilisi. Cras ullamcorper pellentesque orci, nec\n' +
+                                                '                        vestibulum nibh.uspendisse'}
+                                            />
+                                        </TimelineContent>
+                                    </TimelineItem>
+
+                                    <TimelineItem classes={{missingOppositeContent: classes.missingOppositeContent}}>
+                                        <TimelineSeparator>
+                                            <TimelineDot/>
+                                            <TimelineConnector/>
+                                        </TimelineSeparator>
+                                        <TimelineContent>
+                                            <TimeLineText
+                                                title={'May 2017'}
+                                                description={'Ut enim mi, mattis at sollicitudin rhoncus, rhoncus eget sem. Curabitur aliquam tellus eu nisl\n' +
+                                                '                        suscipit, at vestibulum ex rutrum. Nulla facilisi. Cras ullamcorper pellentesque orci, nec\n' +
+                                                '                        vestibulum nibh.uspendisse'}
+                                            />
+                                        </TimelineContent>
+                                    </TimelineItem>
+
+                                    <TimelineItem classes={{missingOppositeContent: classes.missingOppositeContent}}>
+                                        <TimelineSeparator>
+                                            <TimelineDot/>
+                                            <TimelineConnector/>
+                                        </TimelineSeparator>
+                                        <TimelineContent>
+                                            <TimeLineText
+                                                title={'May 2019'}
+                                                description={'Ut enim mi, mattis at sollicitudin rhoncus, rhoncus eget sem. Curabitur aliquam tellus eu nisl\n' +
+                                                '                        suscipit, at vestibulum ex rutrum. Nulla facilisi. Cras ullamcorper pellentesque orci, nec\n' +
+                                                '                        vestibulum nibh.uspendisse'}
+                                            />
+                                        </TimelineContent>
+                                    </TimelineItem>
+
+                                    <TimelineItem classes={{missingOppositeContent: classes.missingOppositeContent}}>
+                                        <TimelineSeparator>
+                                            <TimelineConnector/>
+                                            <TimelineDot className={classes.emptyDot}/>
+                                        </TimelineSeparator>
+                                        <TimelineContent>
+                                        </TimelineContent>
+                                    </TimelineItem>
+                                </MuiTimeLine>
+                            </Hidden>
+
+                            <Box component={'p'} textAlign='center' fontWeight={700} fontSize={20} mt={3}>
+                                To be continue…
+                            </Box>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
+
+            <Box mb={{xs: 7, md: 10, lg: 15}}>
                 <Container>
                     <Grid container justify='center'>
                         <Grid item xs={12} md={6} lg={4}>
