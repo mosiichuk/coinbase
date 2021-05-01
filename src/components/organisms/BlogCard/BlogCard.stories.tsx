@@ -28,3 +28,30 @@ export const Default = () => (
     </Container>
 );
 Default.storyName = "BlogCard";
+
+
+export const Small = () => (
+    <Container>
+        <Grid container justify='center'>
+            <Grid item xs={10}>
+                <Box>
+                    <BlogCard blog={blog} size='small'/>
+                </Box>
+            </Grid>
+        </Grid>
+    </Container>
+);
+Small.storyName = "Small Blog Card";
+
+export const SmallDisabled = () => (
+    <Container>
+        <Grid container justify='center'>
+            <Grid item xs={10}>
+                <Box>
+                    <BlogCard blog={blog} size='small' disabled/>
+                </Box>
+            </Grid>
+        </Grid>
+    </Container>
+);
+SmallDisabled.storyName = "Small Disabled Blog Card";

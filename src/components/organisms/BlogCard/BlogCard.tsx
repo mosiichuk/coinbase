@@ -1,10 +1,15 @@
 import React, {FC} from 'react';
-import {Box, makeStyles, Paper, Typography} from "@material-ui/core";
+import {Box, makeStyles, Paper, Theme, Typography} from "@material-ui/core";
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from "components/atoms/Button/Button";
+import clsx from "clsx";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles<Theme>((theme) => ({
+    cardSmall: {
+        width: '100%',
+        maxWidth: 465,
+    },
     infoSection: {
         borderTop: 0,
         borderTopLeftRadius: 0,
@@ -46,6 +51,16 @@ const useStyles = makeStyles((theme) => ({
             lineHeight: '45px',
         },
 
+        '$cardSmall &': {
+            fontSize: 24,
+        },
+
+        '$disabled &': {
+            background: 'none',
+            '-webkit-background-clip': 'initial',
+            '-webkit-text-fill-color': 'initial',
+            color: theme.palette.grey[200]
+        }
     },
     subtitle: {
         margin: '0 0 15px',
@@ -58,8 +73,17 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('md')]: {
             margin: '0 0 32px',
         },
+
+        '$cardSmall &': {
+            margin: '0 0 19px',
+        },
+
+        '$disabled &': {
+            color: theme.palette.grey[200]
+        }
     },
     description: {
+        fontSize: (isSmall) => isSmall ? 12 : 16,
         lineHeight: '28px',
         margin: '0 0 15px',
 
@@ -69,6 +93,18 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('md')]: {
             margin: '0 0 32px',
         },
+
+        '$cardSmall &': {
+            margin: '0 0 23px',
+        },
+
+        '$disabled &': {
+            color: theme.palette.grey[200]
+        }
+    },
+    disabled: {
+        border: '1px solid #888888',
+        backgroundImage: 'none',
     }
 }));
 
@@ -83,57 +119,98 @@ interface Blog {
 
 interface BlogCardProps {
     blog: Blog,
+    size?: 'small' | 'default'
+    disabled?: boolean,
 }
 
-const BlogCard: FC<BlogCardProps> = ({blog} : BlogCardProps) => {
+const BlogCard: FC<BlogCardProps> = ({blog, size = 'default', disabled}: BlogCardProps) => {
+    const isSmall = size === 'small';
     const classes = useStyles();
 
-    return (
-        <Box
-            component={Paper}
-            overflow='hidden'
-            boxShadow={0}
-        >
-
-            <Box className={classes.imgContainer}>
-                <Image
-                    src={blog.thumbnail}
-                    className={classes.img}
-                    layout='fill'
-                />
-            </Box>
-
+    return isSmall
+        ? (
             <Box
                 component={Paper}
-                variant="outlined"
-                pt={{xs: 3, md: 7}}
-                pb={{xs: 4}}
-                className={classes.infoSection}
+                overflow='hidden'
+                boxShadow={0}
+                className={clsx(classes.cardSmall, disabled && classes.disabled)}
             >
-                <Box width={{xs: '90%', sm: '80%'}} textAlign='center' mx='auto'>
-                    <Typography className={classes.title}>
-                        {blog.title}
-                    </Typography>
+                <Box
+                    component={Paper}
+                    variant={!disabled && 'outlined'}
+                    pt={{xs: 3, md: 5}}
+                    pb={{xs: 5}}
+                >
+                    <Box width={{xs: '90%', sm: '80%'}} mx='auto'>
+                        <Typography className={classes.subtitle}>
+                            {blog.date} | {blog.topic}
+                        </Typography>
 
-                    <Typography className={classes.subtitle}>
-                        {blog.date} | {blog.topic}
-                    </Typography>
+                        <Typography className={classes.title}>
+                            {blog.title}
+                        </Typography>
 
-                    <Typography variant='body1' className={classes.description}>
-                        {blog.description}
-                    </Typography>
+                        <Typography variant='body1' className={classes.description}>
+                            {blog.description}
+                        </Typography>
 
-                    <Link href={blog.link}>
-                        <a>
-                            <Button>
-                                Discover
-                            </Button>
-                        </a>
-                    </Link>
+                        <Link href={blog.link}>
+                            <a>
+                                <Button disabled={disabled}>
+                                    Read more
+                                </Button>
+                            </a>
+                        </Link>
+                    </Box>
                 </Box>
             </Box>
-        </Box>
-    );
+        )
+        : (
+            <Box
+                component={Paper}
+                overflow='hidden'
+                boxShadow={0}
+            >
+
+                <Box className={classes.imgContainer}>
+                    <Image
+                        src={blog.thumbnail}
+                        className={classes.img}
+                        layout='fill'
+                    />
+                </Box>
+
+                <Box
+                    component={Paper}
+                    variant="outlined"
+                    pt={{xs: 3, md: 7}}
+                    pb={{xs: 4}}
+                    className={classes.infoSection}
+                >
+                    <Box width={{xs: '90%', sm: '80%'}} textAlign='center' mx='auto'>
+                        <Typography className={classes.title}>
+                            {blog.title}
+                        </Typography>
+
+                        <Typography className={classes.subtitle}>
+                            {blog.date} | {blog.topic}
+                        </Typography>
+
+                        <Typography variant='body1' className={classes.description}>
+                            {blog.description}
+                        </Typography>
+
+                        <Link href={blog.link}>
+                            <a>
+                                <Button>
+                                    Discover
+                                </Button>
+                            </a>
+                        </Link>
+                    </Box>
+                </Box>
+            </Box>
+        );
 };
 
 export default BlogCard;
