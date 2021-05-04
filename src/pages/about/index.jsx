@@ -1,6 +1,6 @@
 import React from 'react';
 import Breadcrumbs from "components/molecules/Breadcrumbs/Breadcrumbs";
-import {Container, Grid, Hidden, makeStyles, Paper, Theme, Typography} from "@material-ui/core";
+import {Container, Grid, Hidden, makeStyles, Paper, Typography} from "@material-ui/core";
 import Image from "next/image";
 import HeroSection from "components/organisms/HeroSection/HeroSection";
 import SectionHeader from "components/atoms/SectionHeader/SectionHeader";
@@ -15,6 +15,13 @@ import TimelineDot from "@material-ui/lab/TimelineDot";
 import TimeLineText from "components/atoms/TimeLineText/TimeLineText";
 import TimelineOppositeContent from "@material-ui/lab/TimelineOppositeContent";
 import Box from "@material-ui/core/Box";
+import {Swiper, SwiperSlide} from 'swiper/react';
+import TeamMemberCard from "components/atoms/TeamMemberCard/TeamMemberCard";
+import SwiperCore, {
+    EffectCoverflow
+} from 'swiper/core';
+
+SwiperCore.use([EffectCoverflow]);
 
 const useStyles = makeStyles((theme) => ({
     emptyDot: {
@@ -25,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
             padding: 0,
             flexGrow: 0,
         },
-    }
+    },
 }));
 
 const breadcrumbs = [
@@ -307,6 +314,78 @@ const Homepage = () => {
 
                             <Box component={'p'} textAlign='center' fontWeight={700} fontSize={20} mt={3}>
                                 To be continue…
+                            </Box>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
+
+            <Box mb={{xs: 7, md: 10, lg: 15}}>
+                <Container>
+                    <Grid container justify='center'>
+                        <Grid item xs={12} md={6} lg={6}>
+                            <Box mb={{xs: 2, md: 4}} textAlign='center'>
+                                <SectionHeader dashAlign='center'>
+                                    Meet the team
+                                </SectionHeader>
+                            </Box>
+
+                            <Box mb={{xs: 2, md: 4}} textAlign='center'>
+                                <Typography variant="body1">
+                                    Meet the team that makes the process of this system fast and painless as possible to
+                                    provide you with good result
+                                </Typography>
+                            </Box>
+                        </Grid>
+
+                        <Grid item xs={12}>
+                            <Box>
+                                <Swiper
+                                    init
+                                    centeredSlides
+                                    slidesPerView={'auto'}
+                                    effect={'coverflow'}
+                                    coverflowEffect={{
+                                        rotate: 0,
+                                        slideShadows: false,
+                                        modifier: 1,
+                                        depth: 130,
+                                    }}
+                                    className='team-slider'
+                                    breakpoints={{
+                                        0: {
+                                            initialSlide: 0,
+                                            spaceBetween: 30,
+                                        },
+                                        600: {
+                                            slidesPerView: 3,
+                                            initialSlide: 2,
+                                        },
+                                        1000: {
+                                            initialSlide: 2,
+                                        }
+                                    }}
+                                >
+                                    <SwiperSlide>
+                                        <TeamMemberCard title={'CEO'} name={'Amanda Roth'}/>
+                                    </SwiperSlide>
+
+                                    <SwiperSlide>
+                                        <TeamMemberCard title={'CEO'} name={'Amanda Roth'}/>
+                                    </SwiperSlide>
+
+                                    <SwiperSlide>
+                                        <TeamMemberCard title={'CEO'} name={'Amanda Roth'}/>
+                                    </SwiperSlide>
+
+                                    <SwiperSlide>
+                                        <TeamMemberCard title={'CEO'} name={'Amanda Roth'}/>
+                                    </SwiperSlide>
+
+                                    <SwiperSlide>
+                                        <TeamMemberCard title={'CEO'} name={'Amanda Roth'}/>
+                                    </SwiperSlide>
+                                </Swiper>
                             </Box>
                         </Grid>
                     </Grid>

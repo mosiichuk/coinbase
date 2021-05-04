@@ -26,6 +26,13 @@
     opacity: 1;
 }
 
+.team-slider {}
+
+.team-slider .swiper-slide {
+    width: 100%;
+    max-width: 300px;
+}
+
 @media (min-width: 600px) {
     .blog-slider .swiper-wrapper {
         margin: 0 0 0 -45px;
@@ -33,5 +40,11 @@
 
     .blog-slider .swiper-slide {
         margin: 0;
+    }
+}
+
+@media (min-width: 1600px) {
+    .team-slider {
+        overflow: visible;
     }
 }
