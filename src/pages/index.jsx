@@ -6,6 +6,13 @@ import SectionHeader from "components/atoms/SectionHeader/SectionHeader";
 import Button from "components/atoms/Button/Button";
 import ShapeDivider from "components/atoms/ShapeDivider/ShapeDivider";
 import Input from "components/atoms/Input/Input";
+import {Swiper, SwiperSlide} from 'swiper/react';
+import BlogCard from "components/organisms/BlogCard/BlogCard";
+import SwiperCore, {
+    EffectCoverflow
+} from 'swiper/core';
+
+SwiperCore.use([EffectCoverflow]);
 
 const useStyles = makeStyles((theme) => ({
     smFirstMdSecond: {
@@ -30,6 +37,33 @@ const useStyles = makeStyles((theme) => ({
         background: theme.palette.primary.secondaryGradient,
     },
 }));
+
+const blogs = [
+    {
+        title: 'How to sell your itunes giftcard',
+        description: 'Lorem ipsum dolor sit amet, magna habemus ius ad, qui minimum voluptaria in. Ad mei modus quodsi complectitur, postea verterem persecuti cu est, sea epicuri.',
+        date: '19 JUNE, 2019',
+        topic: 'BUSINESS',
+        thumbnail: '/img/blog1.jpg',
+        link: '/blogs/1',
+    },
+    {
+        title: 'EXCHANGE 5 PRODUCTS & GET 1 FREE PRODUCT.',
+        description: 'Lorem ipsum dolor sit amet, magna habemus ius ad, qui minimum voluptaria in. Ad mei modus quodsi complectitur, postea verterem persecuti cu est, sea epicuri.',
+        date: '19 JUNE, 2019',
+        topic: 'BUSINESS',
+        thumbnail: '/img/blog2.jpg',
+        link: '/blogs/1',
+    },
+    {
+        title: 'ETH TO NAIRA EXCHANGE RATE IS NOW #400',
+        description: 'Lorem ipsum dolor sit amet, magna habemus ius ad, qui minimum voluptaria in. Ad mei modus quodsi complectitur, postea verterem persecuti cu est, sea epicuri.',
+        date: '19 JUNE, 2019',
+        topic: 'BUSINESS',
+        thumbnail: '/img/blog3.jpg',
+        link: '/blogs/1',
+    }
+];
 
 const leftSlot = <>
     <Box mb={{xs: 2, md: 3}}>
@@ -174,14 +208,14 @@ const Homepage = () => {
                         className={classes.gradientBackground}
                         zIndex={-1}
                     >
-                            <ShapeDivider bottom height={121}>
-                                <svg width="1500" height="122" viewBox="0 0 1500 122" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg" preserveAspectRatio='none'>
-                                    <path
-                                        d="M432.981 49.0763C778.377 -59.7125 1000.47 43.6141 1277.05 62.2766C1391.07 69.97 1459.25 69.0771 1500 65.3698V122H0V120.497C81.5066 123.63 225.191 114.524 432.981 49.0763Z"
-                                        fill="white"/>
-                                </svg>
-                            </ShapeDivider>
+                        <ShapeDivider bottom height={121}>
+                            <svg width="1500" height="122" viewBox="0 0 1500 122" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio='none'>
+                                <path
+                                    d="M432.981 49.0763C778.377 -59.7125 1000.47 43.6141 1277.05 62.2766C1391.07 69.97 1459.25 69.0771 1500 65.3698V122H0V120.497C81.5066 123.63 225.191 114.524 432.981 49.0763Z"
+                                    fill="white"/>
+                            </svg>
+                        </ShapeDivider>
                     </Box>
                 </Hidden>
 
@@ -246,6 +280,61 @@ const Homepage = () => {
                                         </Box>
                                     </Box>
                                 </Box>
+                            </Box>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
+
+            <Box>
+                <Container>
+                    <Grid container justify='center'>
+                        <Grid item xs={12} md={6} lg={6}>
+                            <Box mb={{xs: 2, md: 5}} textAlign='center'>
+                                <SectionHeader dashAlign='center'>
+                                    Our blog
+                                </SectionHeader>
+                            </Box>
+
+                            <Box mb={{xs: 2, md: 5}} textAlign='center'>
+                                <Typography variant="body1">
+                                    Get to know the latest stuff via our blog post.
+                                </Typography>
+                            </Box>
+                        </Grid>
+
+                        <Grid item xs={12}>
+                            <Box>
+                                <Swiper
+                                    init
+                                    slidesPerView='auto'
+                                    loop
+                                    centeredSlides
+                                    effect={'coverflow'}
+                                    coverflowEffect={{
+                                        rotate: 0,
+                                        slideShadows: false,
+                                        modifier: 1,
+                                        depth: 100,
+                                    }}
+                                    className='blog-slider'
+                                    breakpoints={{
+                                        0: {
+                                            spaceBetween: 30,
+                                        },
+                                        600: {
+                                            spaceBetween: 0,
+                                        }
+                                    }}
+                                >
+                                    {blogs.map(blog => (
+                                        <SwiperSlide key={blog.thumbnail}>
+                                            {({isActive}) => (
+                                                <BlogCard blog={blog} size='small' disabled={!isActive}/>
+                                            )}
+                                        </SwiperSlide>
+                                    ))}
+                                </Swiper>
                             </Box>
                         </Grid>
                     </Grid>

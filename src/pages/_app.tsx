@@ -5,6 +5,7 @@ import React, {useEffect} from "react";
 import {AppProps} from "next/app";
 import Head from "next/head";
 import 'swiper/swiper-bundle.min.css';
+import '../styles/style.css';
 
 function App({Component, pageProps} : AppProps) {
     useEffect(() => {

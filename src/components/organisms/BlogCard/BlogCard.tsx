@@ -53,9 +53,12 @@ const useStyles = makeStyles<Theme>((theme) => ({
 
         '$cardSmall &': {
             fontSize: 24,
+            lineHeight: '35px',
         },
 
         '$disabled &': {
+            fontSize: 20,
+            lineHeight: '32px',
             background: 'none',
             '-webkit-background-clip': 'initial',
             '-webkit-text-fill-color': 'initial',
@@ -83,7 +86,7 @@ const useStyles = makeStyles<Theme>((theme) => ({
         }
     },
     description: {
-        fontSize: (isSmall) => isSmall ? 12 : 16,
+        fontSize: 16,
         lineHeight: '28px',
         margin: '0 0 15px',
 
@@ -95,14 +98,18 @@ const useStyles = makeStyles<Theme>((theme) => ({
         },
 
         '$cardSmall &': {
+            fontSize: 12,
             margin: '0 0 23px',
         },
 
         '$disabled &': {
+            fontSize: 10,
             color: theme.palette.grey[200]
         }
     },
     disabled: {
+        width: '100%',
+        maxWidth: 375,
         border: '1px solid #888888',
         backgroundImage: 'none',
     }
@@ -137,7 +144,7 @@ const BlogCard: FC<BlogCardProps> = ({blog, size = 'default', disabled}: BlogCar
             >
                 <Box
                     component={Paper}
-                    variant={!disabled && 'outlined'}
+                    variant={!disabled? 'outlined' : 'elevation'}
                     pt={{xs: 3, md: 5}}
                     pb={{xs: 5}}
                 >
@@ -154,13 +161,15 @@ const BlogCard: FC<BlogCardProps> = ({blog, size = 'default', disabled}: BlogCar
                             {blog.description}
                         </Typography>
 
-                        <Link href={blog.link}>
-                            <a>
-                                <Button disabled={disabled}>
-                                    Read more
-                                </Button>
-                            </a>
-                        </Link>
+                        <Box textAlign={{xs: 'center', sm: 'left'}}>
+                            <Link href={blog.link}>
+                                <a>
+                                    <Button disabled={disabled}>
+                                        Read more
+                                    </Button>
+                                </a>
+                            </Link>
+                        </Box>
                     </Box>
                 </Box>
             </Box>
