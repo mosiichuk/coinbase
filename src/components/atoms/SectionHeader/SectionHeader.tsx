@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import {makeStyles, Theme, Typography,} from "@material-ui/core";
+import clsx from "clsx";
 
 const useStyles = makeStyles<Theme, SectionHeaderProps>((theme) => ({
     header: {
@@ -28,19 +29,25 @@ const useStyles = makeStyles<Theme, SectionHeaderProps>((theme) => ({
             }
         }
     },
+    whiteHeader: {
+        background: "none",
+        color: theme.palette.common.white,
+        '-webkit-text-fill-color': 'initial',
+    },
 }));
 
 interface SectionHeaderProps {
     dashAlign?: 'left' | 'center',
     children: React.ReactNode,
     fontSize?: number,
+    color?: 'white' | 'gradient',
 }
 
-const SectionHeader: FC<SectionHeaderProps> = ({dashAlign = 'left', fontSize, children}) => {
-    const style = useStyles({dashAlign, fontSize} as SectionHeaderProps);
+const SectionHeader: FC<SectionHeaderProps> = ({dashAlign = 'left', fontSize, color = 'gradient', children}) => {
+    const classes = useStyles({dashAlign, fontSize} as SectionHeaderProps);
 
     return (
-        <Typography className={style.header} variant="h2">
+        <Typography className={clsx(classes.header, color === "white" && classes.whiteHeader)} variant="h2">
             {children}
         </Typography>
     );

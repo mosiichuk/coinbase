@@ -28,7 +28,7 @@ const Navbar: FC = () => {
     }
 
     return (
-        <AppBar position="fixed" classes={{root: classes.root}} elevation={0}>
+        <AppBar position="fixed" classes={{root: classes.root}} elevation={2}>
             <Grid container
                   direction="row"
                   justify="space-between"

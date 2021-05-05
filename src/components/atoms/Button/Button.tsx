@@ -4,15 +4,15 @@ import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
     button: {
+        padding: '17px 56px',
+        background: theme.palette.primary.secondaryGradient,
         color: theme.palette.common.white,
         fontSize: 14,
-        fontWeight: theme.typography.fontWeightBold,
         lineHeight: '21px',
+        fontWeight: theme.typography.fontWeightBold,
         textTransform: 'uppercase',
-        borderRadius: 100,
-        background: theme.palette.primary.secondaryGradient,
         border: 'none',
-        padding: '17px 56px',
+        borderRadius: 100,
         cursor: 'pointer',
 
         '&:disabled': {
@@ -27,21 +27,13 @@ const useStyles = makeStyles((theme) => ({
 
     buttonAccent: {
         position: 'relative',
-        background: theme.palette.primary.secondaryGradient,
-        '-webkit-background-clip': 'text',
-        '-webkit-text-fill-color': 'transparent',
+        background: theme.palette.common.white,
 
-        '&::after': {
-            content: '""',
-            position: 'absolute',
-            borderRadius: 100,
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: theme.palette.common.white,
-            zIndex: -1,
-        },
+        '& span': {
+            background: theme.palette.primary.secondaryGradient,
+            '-webkit-background-clip': 'text',
+            '-webkit-text-fill-color': 'transparent',
+        }
     }
 }));
 
@@ -49,12 +41,12 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     accent?: boolean,
 }
 
-const Button: FC<ButtonProps> = (props: ButtonProps) => {
+const Button: FC<ButtonProps> = ({accent, ...props}: ButtonProps) => {
     const classes = useStyles();
 
     return (
-        <button className={clsx(classes.button, props.accent && classes.buttonAccent)} {...props}>
-            {props.children}
+        <button className={clsx(classes.button, accent && classes.buttonAccent)} {...props}>
+            <span>{props.children}</span>
         </button>
     );
 };

@@ -1,6 +1,7 @@
 import {createMuiTheme,} from "@material-ui/core";
 import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
 import {Shadows} from "@material-ui/core/styles/shadows";
+import {OverflowXProperty} from "csstype";
 
 declare module "@material-ui/core/styles/createPalette" {
     interface PaletteColor {
@@ -19,7 +20,8 @@ const breakpoints = createBreakpoints({});
 const shadows = [
     "none",
     "0px 50px 100px rgba(0, 0, 0, 0.1)",
-    ...Array<string>(23).fill('none')
+    "0px 4px 14px rgba(0, 0, 0, 0.1)",
+    ...Array<string>(22).fill('none')
 ] as string[];
 
 
@@ -101,11 +103,23 @@ const overrides = {
             html: {
                 WebkitFontSmoothing: 'auto',
                 height: '100%',
+                scrollbarColor: `${palette.primary.primaryGradient} ${palette.common.white}`,
             },
             body: {
                 color: palette.common.black,
                 backgroundColor: palette.common.white,
-            }
+                overflowX: 'hidden' as OverflowXProperty,
+            },
+            'body::-webkit-scrollbar': {
+                width: '0.5rem',
+            },
+            'body::-webkit-scrollbar-track': {
+                background: palette.common.white,
+
+            },
+            'body::-webkit-scrollbar-thumb': {
+                background: palette.primary.primaryGradient,
+            },
         },
     },
     MuiSelect: {

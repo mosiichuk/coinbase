@@ -74,11 +74,17 @@ const leftSlot = <>
         </Typography>
     </Box>
 
-    <Box mb={{xs: 2, md: 3}}>
+    <Box mb={{xs: 2, md: 4}}>
         <Typography variant='subtitle1'>
             CoinBase is a platform for trading your bitcoin and
             giftcard at the best rate, why not give us a trial.
         </Typography>
+    </Box>
+
+    <Box>
+        <Button accent>
+            Get started
+        </Button>
     </Box>
 </>;
 
@@ -143,9 +149,26 @@ const Homepage = () => {
                     </ShapeDivider>
                 </Hidden>
 
-                {/*<Container>*/}
+                <Container>
+                    <Grid container justify="center">
+                        <Grid item xs={12} md={5}>
+                            <Box pt={{xs: 0, sm: 4}} mb={{xs: 2, md: 6}} textAlign={'center'} color="#FFF">
+                                <SectionHeader dashAlign={'center'} color={'white'}>
+                                    Great experience
+                                    with CoinBase
+                                </SectionHeader>
+                            </Box>
 
-                {/*</Container>*/}
+                            <Box mb={{xs: 2, md: 4}} color="#FFF" textAlign={'center'}>
+                                <Typography variant="body1">
+                                    CoinBase is an online site and a p2admin platform that allows users to buy, sell
+                                    and/ or exchange digital and fiat assets safely. Owned and managed by CoinBase
+                                    Business Services established and Incoperated in Nigeria.
+                                </Typography>
+                            </Box>
+                        </Grid>
+                    </Grid>
+                </Container>
 
                 <Hidden smDown>
                     <ShapeDivider bottom height={121}>
@@ -286,7 +309,7 @@ const Homepage = () => {
                 </Container>
             </Box>
 
-            <Box>
+            <Box mb={{xs: 7, md: 11}}>
                 <Container>
                     <Grid container justify='center'>
                         <Grid item xs={12} md={6} lg={6}>
@@ -309,13 +332,14 @@ const Homepage = () => {
                                     init
                                     slidesPerView='auto'
                                     loop
+                                    speed={1700}
                                     centeredSlides
                                     effect={'coverflow'}
                                     coverflowEffect={{
                                         rotate: 0,
                                         slideShadows: false,
                                         modifier: 1,
-                                        depth: 100,
+                                        depth: 150,
                                     }}
                                     className='blog-slider'
                                     breakpoints={{

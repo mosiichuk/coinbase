@@ -12,10 +12,12 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
         boxShadow: 'none',
+        borderRadius: 5,
     },
     menuItem: {
         color: theme.palette.common.black,
         fontSize: 12,
+        lineHeight: '18px',
         minWidth: 130,
         padding: '11px 0px 11px 12px',
 
