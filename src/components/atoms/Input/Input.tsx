@@ -40,15 +40,15 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Input: FC<InputProps> = ({label, required, multiline, accent, ...props}: InputProps) => {
+const Input: FC<InputProps> = ({label, required, multiline, accent, className, ...props}: InputProps) => {
     const placeholder = required ? label + '*' : label;
     const classes = useStyles();
 
     return (
         <>
             {multiline
-                ? <textarea placeholder={placeholder} required={required} className={clsx(classes.root, accent && classes.accent)} {...props}/>
-                : <input placeholder={placeholder} required={required} className={clsx(classes.root, accent && classes.accent)} {...props}/>
+                ? <textarea placeholder={placeholder} required={required} className={clsx(classes.root, accent && classes.accent, className)} {...props}/>
+                : <input placeholder={placeholder} required={required} className={clsx(classes.root, accent && classes.accent, className)} {...props}/>
             }
         </>
     );
