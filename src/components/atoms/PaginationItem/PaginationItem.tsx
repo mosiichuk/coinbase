@@ -5,8 +5,8 @@ import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        minWidth: 60,
-        minHeight: 60,
+        minWidth: 40,
+        minHeight: 40,
         padding: '0px',
         border: '1px solid #E0E0E0',
         borderRadius: '100px',
@@ -14,8 +14,14 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.common.black,
         textAlign: 'center',
         boxSizing: 'border-box',
-    },
+        margin: '0 0 20px',
 
+        [theme.breakpoints.up('md')]: {
+            minWidth: 60,
+            minHeight: 60,
+            margin: '0',
+        },
+    },
     page: {
         transition: theme.transitions.create(['color', 'background-color'], {
             duration: theme.transitions.duration.short,
@@ -55,15 +61,8 @@ const useStyles = makeStyles((theme) => ({
             opacity: theme.palette.action.disabledOpacity,
         },
     },
-
-    ellipsis: {
-        verticalAlign: 'middle',
-        '&$disabled': {
-            opacity: theme.palette.action.disabledOpacity,
-        },
-    },
     navButton: {
-        padding: '0 32px',
+        padding: '0 22px',
     },
     selected: {},
     disabled: {},

@@ -31,7 +31,11 @@ const useStyles = makeStyles((theme) => ({
     },
     transferSection: {
         background: theme.palette.primary.secondaryGradient,
-        padding: '242px 0 176px',
+        padding: '92px 0 96px',
+
+        [theme.breakpoints.up('md')]: {
+            padding: '242px 0 176px',
+        },
     },
     gradientBackground: {
         background: theme.palette.primary.secondaryGradient,
@@ -74,21 +78,23 @@ const leftSlot = <>
         </Typography>
     </Box>
 
-    <Box mb={{xs: 2, md: 4}}>
+    <Box mb={{xs: 3, md: 4}}>
         <Typography variant='subtitle1'>
             CoinBase is a platform for trading your bitcoin and
             giftcard at the best rate, why not give us a trial.
         </Typography>
     </Box>
 
-    <Box>
+    <Box textAlign={{xs: 'center', md: 'left'}}>
         <Button accent>
             Get started
         </Button>
     </Box>
 </>;
 
-const rightSlot = <Image src='/img/hero-home.png' width={628} height={519}/>;
+const rightSlot = <Hidden smDown>
+    <Image src='/img/hero-home.png' width={628} height={519}/>
+</Hidden> ;
 
 const Homepage = () => {
     const classes = useStyles();
@@ -97,7 +103,7 @@ const Homepage = () => {
         <>
             <HeroSection leftSlot={leftSlot} rightSlot={rightSlot}/>
 
-            <Box pt={5}>
+            <Box pt={6} mb={{xs: 6, md: 0}}>
                 <Container>
                     <Grid container justify='center'>
                         <Grid item xs={12} md={7}>
@@ -182,7 +188,7 @@ const Homepage = () => {
                 </Hidden>
             </Box>
 
-            <Box mb={15}>
+            <Box mb={{xs: 7, md: 15}}>
                 <Container>
                     <Grid container justify='space-between'>
                         <Grid item xs={12} md={5} className={classes.smSecondMdFirst}>

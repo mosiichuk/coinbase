@@ -77,7 +77,7 @@ const Homepage = () => {
         <>
             <HeroSection leftSlot={leftSlot} rightSlot={rightSlot}/>
 
-            <Box pt={{xs: 3, md: 5}} mb={{xs: 3, md: 8}}>
+            <Box pt={{xs: 6, md: 5}} mb={{xs: 8}}>
                 <Container>
                     <Grid container justify='center'>
                         <Grid item xs={12} sm={10} md={6}>
